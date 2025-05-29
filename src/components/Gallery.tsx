@@ -25,7 +25,7 @@ export const Gallery = () => {
     : artworks.filter(artwork => artwork.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-gray-800">
+    <section id="gallery" className="py-20 px-4 bg-slate-800">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -34,10 +34,10 @@ export const Gallery = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-6">
-            My <span className="text-yellow-400">Gallery</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">
+            My <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Gallery</span>
           </h2>
-          <p className="text-xl text-amber-200 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Explore a collection of traditional sketch artworks, each piece crafted with dedication and attention to detail.
           </p>
         </motion.div>
@@ -58,8 +58,8 @@ export const Gallery = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-yellow-400 text-gray-900'
-                  : 'bg-gray-700 text-amber-100 hover:bg-gray-600'
+                  ? 'bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white'
+                  : 'bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600'
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -82,16 +82,16 @@ export const Gallery = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-gray-700 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+                className="bg-slate-700 rounded-lg overflow-hidden shadow-lg cursor-pointer group border border-slate-600"
                 onClick={() => setSelectedImage(artwork)}
               >
-                <div className="aspect-square bg-gradient-to-br from-amber-100 to-yellow-200 relative overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-slate-200 to-slate-300 relative overflow-hidden">
                   <img
                     src={artwork.image}
                     alt={artwork.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-900/40 transition-all duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/40 transition-all duration-300 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center">
                       <h3 className="text-lg font-bold mb-2">{artwork.title}</h3>
                       <p className="text-sm">{artwork.description}</p>
@@ -117,10 +117,10 @@ export const Gallery = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="bg-gray-800 rounded-lg overflow-hidden max-w-4xl max-h-[90vh] overflow-y-auto"
+                className="bg-slate-800 rounded-lg overflow-hidden max-w-4xl max-h-[90vh] overflow-y-auto border border-slate-600"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="aspect-square bg-gradient-to-br from-amber-100 to-yellow-200">
+                <div className="aspect-square bg-gradient-to-br from-slate-200 to-slate-300">
                   <img
                     src={selectedImage.image}
                     alt={selectedImage.title}
@@ -128,8 +128,8 @@ export const Gallery = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-amber-100 mb-2">{selectedImage.title}</h3>
-                  <p className="text-amber-200">{selectedImage.description}</p>
+                  <h3 className="text-2xl font-bold text-slate-100 mb-2">{selectedImage.title}</h3>
+                  <p className="text-slate-300">{selectedImage.description}</p>
                 </div>
               </motion.div>
             </motion.div>

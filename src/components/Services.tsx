@@ -35,7 +35,7 @@ const process = [
 
 export const Services = () => {
   return (
-    <section id="services" className="py-20 px-4 bg-gray-900">
+    <section id="services" className="py-20 px-4 bg-slate-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -44,10 +44,10 @@ export const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-6">
-            My <span className="text-yellow-400">Services</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">
+            My <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-amber-200 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Professional commission services specializing in traditional sketch artwork. Each piece is hand-crafted with care and precision.
           </p>
         </motion.div>
@@ -62,22 +62,22 @@ export const Services = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-b from-gray-800 to-gray-700 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-b from-slate-800 to-slate-700 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-600"
             >
-              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <service.icon className="w-8 h-8 text-gray-900" />
+              <div className="bg-gradient-to-r from-fuchsia-500 to-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <service.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-amber-100 mb-4">{service.title}</h3>
-              <p className="text-amber-200 mb-6">{service.description}</p>
-              <ul className="text-amber-300 mb-6 space-y-2">
+              <h3 className="text-2xl font-bold text-slate-100 mb-4">{service.title}</h3>
+              <p className="text-slate-300 mb-6">{service.description}</p>
+              <ul className="text-slate-300 mb-6 space-y-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center justify-center">
-                    <span className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-fuchsia-400 rounded-full mr-3"></span>
                     {feature}
                   </li>
                 ))}
               </ul>
-              <div className="text-2xl font-bold text-yellow-400">{service.price}</div>
+              <div className="text-2xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">{service.price}</div>
             </motion.div>
           ))}
         </div>
@@ -90,10 +90,10 @@ export const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-amber-100 mb-6">
-            Commission <span className="text-yellow-400">Process</span>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-100 mb-6">
+            Commission <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Process</span>
           </h3>
-          <p className="text-lg text-amber-200 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             A streamlined process to ensure your artwork meets your expectations
           </p>
         </motion.div>
@@ -108,11 +108,11 @@ export const Services = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-900">
+              <div className="bg-gradient-to-br from-fuchsia-500 to-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">
                 {step.step}
               </div>
-              <h4 className="text-xl font-bold text-amber-100 mb-2">{step.title}</h4>
-              <p className="text-amber-200">{step.description}</p>
+              <h4 className="text-xl font-bold text-slate-100 mb-2">{step.title}</h4>
+              <p className="text-slate-300">{step.description}</p>
             </motion.div>
           ))}
         </div>
@@ -123,10 +123,10 @@ export const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 p-6 bg-gray-800 rounded-lg border-l-4 border-yellow-400"
+          className="mt-16 p-6 bg-slate-800 rounded-lg border-l-4 border-fuchsia-400"
         >
-          <h4 className="text-lg font-bold text-yellow-400 mb-2">Commission Terms & Disclaimer</h4>
-          <p className="text-amber-200 text-sm leading-relaxed">
+          <h4 className="text-lg font-bold text-fuchsia-400 mb-2">Commission Terms & Disclaimer</h4>
+          <p className="text-slate-300 text-sm leading-relaxed">
             All artwork is created for personal use only. Fan art commissions are accepted but cannot be used for commercial purposes. 
             Payment is required upfront, with major revisions discussed before starting. Completion time varies by complexity but typically ranges from 1-3 weeks. 
             All original artwork remains the intellectual property of NSL Forge unless otherwise agreed upon.

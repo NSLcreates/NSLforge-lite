@@ -12,7 +12,7 @@ const AnimatedSphere = () => {
     <mesh ref={meshRef} scale={2}>
       <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial
-        color="#FCD34D"
+        color="#E879F9"
         roughness={0.2}
         metalness={0.8}
       />
@@ -46,7 +46,7 @@ export const Hero = () => {
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gray-900/70 z-10"></div>
+      <div className="absolute inset-0 bg-slate-900/70 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
@@ -54,16 +54,16 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold text-amber-100 mb-6"
+          className="text-5xl md:text-7xl font-bold text-slate-100 mb-6"
         >
-          <span className="text-yellow-400">NSL</span> Forge
+          <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">NSL</span> Forge
         </motion.h1>
         
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-amber-200 mb-8 leading-relaxed"
+          className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed"
         >
           Crafting traditional sketch artwork with passion and precision. 
           <br />
@@ -77,10 +77,10 @@ export const Hero = () => {
           className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center"
         >
           <motion.button
-            whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(252, 211, 77, 0.3)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(232, 121, 249, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg"
+            className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg"
           >
             Commission Artwork
           </motion.button>
@@ -89,7 +89,7 @@ export const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector('#gallery')?.scrollIntoView({ behavior: 'smooth' })}
-            className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-yellow-400 hover:text-gray-900"
+            className="border-2 border-fuchsia-400 text-fuchsia-400 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-fuchsia-400 hover:text-slate-900"
           >
             View Gallery
           </motion.button>
@@ -106,12 +106,12 @@ export const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-fuchsia-400 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-yellow-400 rounded-full mt-2"
+            className="w-1 h-3 bg-fuchsia-400 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
