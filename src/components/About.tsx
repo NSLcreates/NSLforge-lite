@@ -71,22 +71,22 @@ export const About = () => {
                 <span>nslcreatesofficial@gmail.com</span>
               </a>
               <a
-                href="https://youtube.com/@nslcreates"
+                href="https://youtube.com/@nsl_creates"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-amber-200 hover:text-yellow-400 transition-colors"
               >
                 <Youtube className="w-5 h-5" />
-                <span>YouTube - @nslcreates</span>
+                <span>YouTube - @nsl_creates</span>
               </a>
               <a
-                href="https://instagram.com/nslcreates"
+                href="https://instagram.com/nslforge"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-amber-200 hover:text-yellow-400 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
-                <span>Instagram - @nslcreates</span>
+                <span>Instagram - @nslforge</span>
               </a>
             </div>
           </motion.div>

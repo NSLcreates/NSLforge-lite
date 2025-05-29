@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, X, Mail, User, MessageSquare, Phone } from 'lucide-react';
@@ -14,6 +15,7 @@ export const Contact = () => {
   });
   const [files, setFiles] = useState<File[]>([]);
   const [dragActive, setDragActive] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -65,7 +67,7 @@ export const Contact = () => {
     setFiles(files.filter((_, i) => i !== index));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (files.length === 0) {
@@ -77,24 +79,58 @@ export const Contact = () => {
       return;
     }
     
-    console.log('Form Data:', formData);
-    console.log('Files:', files);
-    
-    toast({
-      title: "Sketch Request Sent!",
-      description: "Thank you for your interest! I'll get back to you soon.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      description: '',
-      timeline: ''
-    });
-    setFiles([]);
+    try {
+      const formDataToSend = new FormData();
+      
+      // Add form fields
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('timeline', formData.timeline);
+      formDataToSend.append('description', formData.description);
+      
+      // Add files
+      files.forEach((file, index) => {
+        formDataToSend.append(`file${index}`, file);
+      });
+
+      const response = await fetch('https://formsubmit.co/nslcreatesofficial@gmail.com', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Sketch Request Sent!",
+          description: "Thank you for your interest! I'll get back to you soon.",
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          description: '',
+          timeline: ''
+        });
+        setFiles([]);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error sending your request. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -124,6 +160,11 @@ export const Contact = () => {
           onSubmit={handleSubmit}
           className="bg-gray-800 rounded-lg p-8 shadow-xl"
         >
+          {/* Hidden fields for FormSubmit configuration */}
+          <input type="hidden" name="_subject" value="New Sketch Request from Website" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label className="block text-amber-100 font-medium mb-2">
@@ -277,12 +318,13 @@ export const Contact = () => {
           </div>
 
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+            whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
             type="submit"
-            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg"
+            disabled={isSubmitting}
+            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Sketch Request
+            {isSubmitting ? 'Sending...' : 'Send Sketch Request'}
           </motion.button>
 
           <p className="text-gray-400 text-sm mt-4 text-center">
