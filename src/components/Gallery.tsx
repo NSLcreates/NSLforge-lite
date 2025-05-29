@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,10 +7,7 @@ const artworks = [
   { id: 3, title: 'Character Design', category: 'characters', image: '/placeholder.svg', description: 'Original character concept art' },
   { id: 4, title: 'Fantasy Portrait', category: 'portraits', image: '/placeholder.svg', description: 'Mystical character illustration' },
   { id: 5, title: 'Nature Study', category: 'landscapes', image: '/placeholder.svg', description: 'Forest scene with detailed textures' },
-  { id: 6, title: 'Comic Character', category: 'characters', image: '/placeholder.svg', description: 'Dynamic action pose sketch' },
-  { id: 7, title: 'Pet Portrait', category: 'portraits', image: '/placeholder.svg', description: 'Beloved companion artwork' },
-  { id: 8, title: 'Urban Sketch', category: 'landscapes', image: '/placeholder.svg', description: 'City architecture study' },
-  { id: 9, title: 'Fantasy Creature', category: 'characters', image: '/placeholder.svg', description: 'Mythical being design' }
+  { id: 6, title: 'Comic Character', category: 'characters', image: '/placeholder.svg', description: 'Dynamic action pose sketch' }
 ];
 
 const categories = ['all', 'portraits', 'landscapes', 'characters'];
@@ -42,7 +38,6 @@ export const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +62,6 @@ export const Gallery = () => {
           ))}
         </motion.div>
 
-        {/* Gallery Grid */}
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -103,7 +97,6 @@ export const Gallery = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Modal */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div
