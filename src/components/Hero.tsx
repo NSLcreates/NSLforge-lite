@@ -1,71 +1,5 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
+
 import { motion } from 'framer-motion';
-import { useRef, Suspense } from 'react';
-import { Mesh } from 'three';
-
-const AnimatedSphere = () => {
-  const meshRef = useRef<Mesh>(null);
-
-  return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} scale={2.4}>
-        <MeshDistortMaterial
-          color="#E879F9"
-          attach="material"
-          distort={0.3}
-          speed={1.5}
-          roughness={0}
-          metalness={0.8}
-        />
-      </Sphere>
-    </Float>
-  );
-};
-
-const ParticleField = () => {
-  const count = 50;
-
-  return (
-    <>
-      {Array.from({ length: count }).map((_, i) => (
-        <Float key={i} speed={0.5 + Math.random()} rotationIntensity={0.5} floatIntensity={0.5}>
-          <mesh
-            position={[
-              (Math.random() - 0.5) * 20,
-              (Math.random() - 0.5) * 20,
-              (Math.random() - 0.5) * 20,
-            ]}
-            scale={0.1 + Math.random() * 0.1}
-          >
-            <sphereGeometry args={[0.1]} />
-            <meshStandardMaterial color="#A855F7" />
-          </mesh>
-        </Float>
-      ))}
-    </>
-  );
-};
-
-const Scene3D = () => {
-  return (
-    <Suspense fallback={null}>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={1.2} color="#E879F9" />
-      <pointLight position={[-10, -10, -5]} intensity={0.8} color="#A855F7" />
-      <AnimatedSphere />
-      <ParticleField />
-      <OrbitControls 
-        enableZoom={false} 
-        enablePan={false} 
-        autoRotate 
-        autoRotateSpeed={0.3}
-        enableDamping
-        dampingFactor={0.05}
-      />
-    </Suspense>
-  );
-};
 
 export const Hero = () => {
   const scrollToContact = () => {
@@ -77,11 +11,71 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced 3D Background */}
+      {/* CSS-based 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <Scene3D />
-        </Canvas>
+        {/* Animated geometric shapes */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-4 h-4 bg-gradient-to-r from-fuchsia-400 to-purple-400 rounded-full opacity-30"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, 20, 0],
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 5 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Large floating orbs */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 rounded-full blur-xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-violet-500/20 rounded-full blur-xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(rgba(232, 121, 249, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(232, 121, 249, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
       </div>
 
       {/* Dark Overlay with Gradient */}
