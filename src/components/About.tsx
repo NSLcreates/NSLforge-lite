@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Palette, Heart, Coffee, Youtube, Mail } from 'lucide-react';
+import { Palette, Heart, Coffee, Youtube, Mail, Instagram } from 'lucide-react';
 
 export const About = () => {
   return (
@@ -78,6 +78,15 @@ export const About = () => {
               >
                 <Youtube className="w-5 h-5" />
                 <span>YouTube - @nslcreates</span>
+              </a>
+              <a
+                href="https://instagram.com/nslcreates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-amber-200 hover:text-yellow-400 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+                <span>Instagram - @nslcreates</span>
               </a>
             </div>
             
