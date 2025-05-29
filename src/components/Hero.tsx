@@ -1,4 +1,3 @@
-
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -10,7 +9,7 @@ const AnimatedSphere = () => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.4}>
+      <Sphere ref={meshRef} scale={2.4}>
         <MeshDistortMaterial
           color="#E879F9"
           attach="material"
