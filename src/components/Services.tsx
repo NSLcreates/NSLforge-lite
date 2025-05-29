@@ -8,26 +8,26 @@ const services = [
     title: 'Custom Portraits',
     description: 'Detailed portrait sketches capturing personality and emotion',
     features: ['Individual portraits', 'Pet portraits', 'Family portraits', 'Character portraits'],
-    price: 'Starting at $75'
+    action: 'Request Portrait'
   },
   {
     icon: Image,
     title: 'Landscape Art',
     description: 'Scenic artwork bringing natural beauty to life on paper',
     features: ['Nature scenes', 'Urban landscapes', 'Architectural studies', 'Fantasy environments'],
-    price: 'Starting at $100'
+    action: 'Request Landscape'
   },
   {
     icon: Star,
     title: 'Character Design',
     description: 'Original character concepts and fan art commissions',
     features: ['Original characters', 'Fan art', 'Concept designs', 'Comic characters'],
-    price: 'Starting at $60'
+    action: 'Request Character'
   }
 ];
 
 const process = [
-  { step: '01', title: 'Consultation', description: 'Discuss your vision and requirements' },
+  { step: '01', title: 'Discussion', description: 'Chat about your vision and ideas' },
   { step: '02', title: 'Sketching', description: 'Initial concepts and rough drafts' },
   { step: '03', title: 'Refinement', description: 'Detailed work and adjustments' },
   { step: '04', title: 'Completion', description: 'Final artwork delivery' }
@@ -71,7 +71,7 @@ export const Services = () => {
             My <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Professional commission services specializing in traditional sketch artwork. Each piece is hand-crafted with care and precision.
+            I create traditional sketch artwork as a passion project. Each piece is hand-crafted with care and dedication to improve my artistic skills.
           </p>
         </motion.div>
 
@@ -129,8 +129,8 @@ export const Services = () => {
                   </motion.li>
                 ))}
               </ul>
-              <div className="text-2xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent relative z-10">
-                {service.price}
+              <div className="text-xl font-bold bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+                {service.action}
               </div>
             </motion.div>
           ))}
@@ -145,10 +145,10 @@ export const Services = () => {
           className="text-center mb-12"
         >
           <h3 className="text-3xl md:text-4xl font-bold text-slate-100 mb-6">
-            Commission <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Process</span>
+            My <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Process</span>
           </h3>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            A streamlined process to ensure your artwork meets your expectations
+            A simple process to create artwork that captures your vision
           </p>
         </motion.div>
 
@@ -193,11 +193,11 @@ export const Services = () => {
           whileHover={{ scale: 1.02 }}
           className="mt-16 p-6 bg-gradient-to-r from-slate-800 to-slate-700 rounded-lg border-l-4 border-fuchsia-400 shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          <h4 className="text-lg font-bold text-fuchsia-400 mb-2">Commission Terms & Disclaimer</h4>
+          <h4 className="text-lg font-bold text-fuchsia-400 mb-2">Important Notice</h4>
           <p className="text-slate-300 text-sm leading-relaxed">
-            All artwork is created for personal use only. Fan art commissions are accepted but cannot be used for commercial purposes. 
-            Payment is required upfront, with major revisions discussed before starting. Completion time varies by complexity but typically ranges from 1-3 weeks. 
-            All original artwork remains the intellectual property of NSL Forge unless otherwise agreed upon.
+            All artwork is created as a personal passion project and learning experience. I'm 15 years old and not operating as a commercial business. 
+            Fan art and original artwork are created for personal enjoyment and skill development. Please reach out if you'd like to discuss a sketch request! 
+            Completion time varies by complexity and my school schedule.
           </p>
         </motion.div>
       </div>

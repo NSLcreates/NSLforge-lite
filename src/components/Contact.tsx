@@ -10,7 +10,6 @@ export const Contact = () => {
     email: '',
     subject: '',
     description: '',
-    budget: '',
     timeline: ''
   });
   const [files, setFiles] = useState<File[]>([]);
@@ -72,8 +71,8 @@ export const Contact = () => {
     console.log('Files:', files);
     
     toast({
-      title: "Commission Request Sent!",
-      description: "Thank you for your interest. I'll get back to you within 24 hours.",
+      title: "Sketch Request Sent!",
+      description: "Thank you for your interest! I'll get back to you soon.",
     });
 
     // Reset form
@@ -82,7 +81,6 @@ export const Contact = () => {
       email: '',
       subject: '',
       description: '',
-      budget: '',
       timeline: ''
     });
     setFiles([]);
@@ -102,8 +100,8 @@ export const Contact = () => {
             Let's Create <span className="text-yellow-400">Together</span>
           </h2>
           <p className="text-xl text-amber-200 max-w-2xl mx-auto">
-            Ready to commission your perfect artwork? Fill out the form below with your vision, 
-            and I'll bring it to life with traditional sketching techniques.
+            Have an idea for a sketch? Fill out the form below with your vision, 
+            and I'll do my best to bring it to life with traditional sketching techniques!
           </p>
         </motion.div>
 
@@ -150,7 +148,7 @@ export const Contact = () => {
           </div>
 
           <div className="mb-6">
-            <label className="block text-amber-100 font-medium mb-2">Commission Type *</label>
+            <label className="block text-amber-100 font-medium mb-2">Sketch Type *</label>
             <select
               name="subject"
               value={formData.subject}
@@ -158,8 +156,8 @@ export const Contact = () => {
               required
               className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
             >
-              <option value="">Select commission type</option>
-              <option value="portrait">Custom Portrait</option>
+              <option value="">Select sketch type</option>
+              <option value="portrait">Portrait Sketch</option>
               <option value="landscape">Landscape Art</option>
               <option value="character">Character Design</option>
               <option value="pet">Pet Portrait</option>
@@ -167,44 +165,26 @@ export const Contact = () => {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label className="block text-amber-100 font-medium mb-2">Budget Range</label>
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
-              >
-                <option value="">Select budget range</option>
-                <option value="50-100">$50 - $100</option>
-                <option value="100-200">$100 - $200</option>
-                <option value="200-300">$200 - $300</option>
-                <option value="300+">$300+</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-amber-100 font-medium mb-2">Timeline</label>
-              <select
-                name="timeline"
-                value={formData.timeline}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
-              >
-                <option value="">Select timeline</option>
-                <option value="1-2 weeks">1-2 weeks</option>
-                <option value="2-4 weeks">2-4 weeks</option>
-                <option value="1-2 months">1-2 months</option>
-                <option value="flexible">Flexible</option>
-              </select>
-            </div>
+          <div className="mb-6">
+            <label className="block text-amber-100 font-medium mb-2">Timeline (Optional)</label>
+            <select
+              name="timeline"
+              value={formData.timeline}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
+            >
+              <option value="">When would you like this?</option>
+              <option value="no-rush">No rush - whenever you have time</option>
+              <option value="few-weeks">In a few weeks</option>
+              <option value="month-or-two">Within a month or two</option>
+              <option value="flexible">Completely flexible</option>
+            </select>
           </div>
 
           <div className="mb-6">
             <label className="block text-amber-100 font-medium mb-2">
               <MessageSquare className="inline w-4 h-4 mr-2" />
-              Project Description *
+              Describe Your Idea *
             </label>
             <textarea
               name="description"
@@ -213,7 +193,7 @@ export const Contact = () => {
               required
               rows={4}
               className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors resize-vertical"
-              placeholder="Describe your vision in detail. Include style preferences, mood, specific elements you want included, etc."
+              placeholder="Describe your sketch idea in detail. Include style preferences, mood, specific elements you want included, etc."
             />
           </div>
 
@@ -276,11 +256,11 @@ export const Contact = () => {
             type="submit"
             className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg"
           >
-            Send Commission Request
+            Send Sketch Request
           </motion.button>
 
           <p className="text-gray-400 text-sm mt-4 text-center">
-            I typically respond within 24 hours. All information is kept confidential.
+            I usually respond when I have free time from school. All information is kept private!
           </p>
         </motion.form>
       </div>

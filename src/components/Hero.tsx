@@ -110,9 +110,9 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed"
         >
-          Crafting traditional sketch artwork with passion and precision. 
+          Creating traditional sketch artwork with passion and dedication. 
           <br />
-          Bringing your vision to life through timeless artistry.
+          Bringing your ideas to life through timeless artistry.
         </motion.p>
 
         <motion.div
@@ -134,7 +134,7 @@ export const Hero = () => {
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-purple-500 to-fuchsia-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             />
-            <span className="relative z-10">Commission Artwork</span>
+            <span className="relative z-10">Request Artwork</span>
           </motion.button>
           
           <motion.button
