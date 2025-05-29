@@ -2,7 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { Mesh } from 'three';
 
 const AnimatedSphere = () => {
@@ -25,15 +25,13 @@ const AnimatedSphere = () => {
 };
 
 const ParticleField = () => {
-  const count = 100;
-  const meshRefs = useRef<Mesh[]>([]);
+  const count = 50;
 
   return (
     <>
       {Array.from({ length: count }).map((_, i) => (
         <Float key={i} speed={0.5 + Math.random()} rotationIntensity={0.5} floatIntensity={0.5}>
           <mesh
-            ref={(el) => (meshRefs.current[i] = el!)}
             position={[
               (Math.random() - 0.5) * 20,
               (Math.random() - 0.5) * 20,
@@ -50,6 +48,26 @@ const ParticleField = () => {
   );
 };
 
+const Scene3D = () => {
+  return (
+    <Suspense fallback={null}>
+      <ambientLight intensity={0.4} />
+      <directionalLight position={[10, 10, 5]} intensity={1.2} color="#E879F9" />
+      <pointLight position={[-10, -10, -5]} intensity={0.8} color="#A855F7" />
+      <AnimatedSphere />
+      <ParticleField />
+      <OrbitControls 
+        enableZoom={false} 
+        enablePan={false} 
+        autoRotate 
+        autoRotateSpeed={0.3}
+        enableDamping
+        dampingFactor={0.05}
+      />
+    </Suspense>
+  );
+};
+
 export const Hero = () => {
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
@@ -63,19 +81,7 @@ export const Hero = () => {
       {/* Enhanced 3D Background */}
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[10, 10, 5]} intensity={1.2} color="#E879F9" />
-          <pointLight position={[-10, -10, -5]} intensity={0.8} color="#A855F7" />
-          <AnimatedSphere />
-          <ParticleField />
-          <OrbitControls 
-            enableZoom={false} 
-            enablePan={false} 
-            autoRotate 
-            autoRotateSpeed={0.3}
-            enableDamping
-            dampingFactor={0.05}
-          />
+          <Scene3D />
         </Canvas>
       </div>
 
