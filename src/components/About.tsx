@@ -1,9 +1,10 @@
+
 import { motion } from 'framer-motion';
-import { Palette, Award, Users, Clock } from 'lucide-react';
+import { Palette, Heart, Coffee, Youtube, Mail } from 'lucide-react';
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 px-4 bg-slate-800">
+    <section id="about" className="py-20 px-4 bg-gray-800">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -12,38 +13,43 @@ export const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">
-            About <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">NSL Forge</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-6">
+            About <span className="text-yellow-400">Me</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Where traditional artistry meets modern vision
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Artistic Elements Display */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="space-y-6"
           >
-            <div className="bg-gradient-to-br from-fuchsia-500 via-purple-500 to-violet-600 rounded-2xl p-8 relative overflow-hidden">
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-slate-800 rounded-full opacity-20"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-slate-900 rounded-full opacity-10"></div>
-              
-              <div className="relative z-10 text-center text-white">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="text-6xl mb-6"
-                >
-                  🎨
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-2">Traditional Artistry</h3>
-                <p className="text-lg opacity-90">Pencil, passion, and precision</p>
+            <h3 className="text-2xl font-bold text-yellow-400 mb-4">My Journey</h3>
+            <p className="text-amber-200 leading-relaxed">
+              Hi! I'm a passionate artist who loves bringing ideas to life through traditional sketching. 
+              What started as a hobby has grown into something I truly cherish - creating unique, 
+              hand-drawn artwork that captures the essence of every subject.
+            </p>
+            <p className="text-amber-200 leading-relaxed">
+              Every sketch tells a story, and I believe in the power of traditional art to connect 
+              with people in ways that digital art sometimes can't. From portraits to landscapes, 
+              I pour my heart into every piece I create.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex items-center gap-2 text-yellow-400">
+                <Palette className="w-5 h-5" />
+                <span>Traditional Sketching</span>
+              </div>
+              <div className="flex items-center gap-2 text-yellow-400">
+                <Heart className="w-5 h-5" />
+                <span>Passion-Driven</span>
+              </div>
+              <div className="flex items-center gap-2 text-yellow-400">
+                <Coffee className="w-5 h-5" />
+                <span>Detail-Oriented</span>
               </div>
             </div>
           </motion.div>
@@ -53,97 +59,36 @@ export const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="bg-gray-900 rounded-lg p-8 shadow-xl"
           >
-            <h3 className="text-3xl font-bold text-slate-100">
-              Passionate About <span className="bg-gradient-to-r from-fuchsia-400 to-purple-400 bg-clip-text text-transparent">Traditional Art</span>
-            </h3>
-            
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Welcome to NSL Forge, where traditional sketching meets modern vision. As a dedicated artist, 
-              I bring fresh perspectives to timeless techniques, creating artwork that captures both 
-              emotion and technical precision.
-            </p>
-
-            <p className="text-lg text-slate-300 leading-relaxed">
-              My journey began with a simple pencil and paper, evolving into a passion for creating 
-              detailed portraits, landscapes, and character designs. Each piece tells a story, 
-              whether it's capturing a beloved pet's personality or bringing an original character to life.
-            </p>
-
-            {/* Enhanced Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-8">
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-slate-700 rounded-lg p-4 border border-slate-600"
-              >
-                <Palette className="w-8 h-8 text-fuchsia-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-fuchsia-400">50+</div>
-                <div className="text-slate-300 text-sm">Completed Works</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-slate-700 rounded-lg p-4 border border-slate-600"
-              >
-                <Users className="w-8 h-8 text-fuchsia-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-fuchsia-400">25+</div>
-                <div className="text-slate-300 text-sm">Happy Clients</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-slate-700 rounded-lg p-4 border border-slate-600"
-              >
-                <Clock className="w-8 h-8 text-fuchsia-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-fuchsia-400">3+</div>
-                <div className="text-slate-300 text-sm">Years Experience</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="text-center bg-slate-700 rounded-lg p-4 border border-slate-600"
-              >
-                <Award className="w-8 h-8 text-fuchsia-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-fuchsia-400">100%</div>
-                <div className="text-slate-300 text-sm">Satisfaction</div>
-              </motion.div>
-            </div>
-
-            {/* Specializations with improved design */}
+            <h3 className="text-2xl font-bold text-yellow-400 mb-6">Connect with me</h3>
             <div className="space-y-4">
-              <h4 className="text-xl font-bold text-slate-100">Specializations</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {['Traditional Sketching', 'Portrait Art', 'Character Design', 'Landscape Drawing', 'Pet Portraits', 'Fan Art'].map((skill) => (
-                  <motion.span
-                    key={skill}
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgb(139, 92, 246)' }}
-                    className="bg-slate-700 hover:bg-violet-500 text-slate-300 hover:text-white px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 text-center cursor-default border border-slate-600"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+              <a
+                href="mailto:nslcreatesofficial@gmail.com"
+                className="flex items-center gap-3 text-amber-200 hover:text-yellow-400 transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+                <span>nslcreatesofficial@gmail.com</span>
+              </a>
+              <a
+                href="https://youtube.com/@nslcreates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-amber-200 hover:text-yellow-400 transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+                <span>YouTube - @nslcreates</span>
+              </a>
             </div>
-
-            {/* Enhanced Social Links */}
-            <div className="pt-6">
-              <h4 className="text-xl font-bold text-slate-100 mb-4">Connect With Me</h4>
-              <div className="flex flex-wrap gap-4">
-                <motion.a
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  href="#"
-                  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
-                >
-                  Instagram
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  href="#"
-                  className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
-                >
-                  YouTube
-                </motion.a>
-              </div>
+            
+            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
+              <h4 className="text-yellow-400 font-semibold mb-2">Fun Facts</h4>
+              <ul className="text-amber-200 space-y-1 text-sm">
+                <li>• Started sketching in high school</li>
+                <li>• Favorite medium: Graphite pencils</li>
+                <li>• Love capturing emotions in portraits</li>
+                <li>• Always learning new techniques</li>
+              </ul>
             </div>
           </motion.div>
         </div>
