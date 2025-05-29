@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, X, Mail, User, MessageSquare, Phone } from 'lucide-react';
@@ -161,15 +160,16 @@ export const Contact = () => {
           <div className="mb-6">
             <label className="block text-amber-100 font-medium mb-2">
               <Phone className="inline w-4 h-4 mr-2" />
-              Phone Number
+              Phone Number *
             </label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
-              placeholder="Your phone number (optional)"
+              placeholder="Your phone number"
             />
           </div>
 
