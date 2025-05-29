@@ -1,12 +1,14 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, X, Mail, User, MessageSquare } from 'lucide-react';
+import { Upload, X, Mail, User, MessageSquare, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     description: '',
     timeline: ''
@@ -88,6 +90,7 @@ export const Contact = () => {
     setFormData({
       name: '',
       email: '',
+      phone: '',
       subject: '',
       description: '',
       timeline: ''
@@ -156,6 +159,21 @@ export const Contact = () => {
           </div>
 
           <div className="mb-6">
+            <label className="block text-amber-100 font-medium mb-2">
+              <Phone className="inline w-4 h-4 mr-2" />
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
+              placeholder="Your phone number (optional)"
+            />
+          </div>
+
+          <div className="mb-6">
             <label className="block text-amber-100 font-medium mb-2">Sketch Type *</label>
             <select
               name="subject"
@@ -181,9 +199,10 @@ export const Contact = () => {
               className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
             >
               <option value="">When would you like this?</option>
-              <option value="no-rush">No rush - whenever you have time</option>
+              <option value="emergency">Emergency - in two days</option>
               <option value="few-weeks">In a few weeks</option>
               <option value="month-or-two">Within a month or two</option>
+              <option value="no-rush">No rush - whenever you have time</option>
               <option value="flexible">Completely flexible</option>
             </select>
           </div>
