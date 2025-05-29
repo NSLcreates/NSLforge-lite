@@ -89,16 +89,6 @@ export const About = () => {
                 <span>Instagram - @nslcreates</span>
               </a>
             </div>
-            
-            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
-              <h4 className="text-yellow-400 font-semibold mb-2">Fun Facts</h4>
-              <ul className="text-amber-200 space-y-1 text-sm">
-                <li>• Started sketching in high school</li>
-                <li>• Favorite medium: Graphite pencils</li>
-                <li>• Love capturing emotions in portraits</li>
-                <li>• Always learning new techniques</li>
-              </ul>
-            </div>
           </motion.div>
         </div>
       </div>
