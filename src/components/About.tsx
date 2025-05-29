@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Palette, Award, Users, Clock } from 'lucide-react';
 
@@ -49,7 +48,6 @@ export const About = () => {
             </div>
           </motion.div>
 
-          {/* About Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -141,17 +139,9 @@ export const About = () => {
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   href="#"
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+                  className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                 >
-                  Twitter
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  href="#"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
-                >
-                  DeviantArt
+                  YouTube
                 </motion.a>
               </div>
             </div>

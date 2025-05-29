@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, X, Mail, User, MessageSquare } from 'lucide-react';
@@ -67,6 +66,16 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (files.length === 0) {
+      toast({
+        title: "Reference Images Required",
+        description: "Please upload at least one reference image for your sketch request.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     console.log('Form Data:', formData);
     console.log('Files:', files);
     
@@ -133,16 +142,15 @@ export const Contact = () => {
             <div>
               <label className="block text-amber-100 font-medium mb-2">
                 <Mail className="inline w-4 h-4 mr-2" />
-                Email Address *
+                Email Address
               </label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                required
                 className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-amber-100 focus:border-yellow-400 focus:outline-none transition-colors"
-                placeholder="your.email@example.com"
+                placeholder="your.email@example.com (optional)"
               />
             </div>
           </div>
@@ -160,7 +168,6 @@ export const Contact = () => {
               <option value="portrait">Portrait Sketch</option>
               <option value="landscape">Landscape Art</option>
               <option value="character">Character Design</option>
-              <option value="pet">Pet Portrait</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -201,7 +208,7 @@ export const Contact = () => {
           <div className="mb-8">
             <label className="block text-amber-100 font-medium mb-2">
               <Upload className="inline w-4 h-4 mr-2" />
-              Reference Images (Optional)
+              Reference Images *
             </label>
             <div
               className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
@@ -228,7 +235,7 @@ export const Contact = () => {
                   />
                 </label>
               </p>
-              <p className="text-gray-400 text-sm">PNG, JPG, GIF up to 10MB each</p>
+              <p className="text-gray-400 text-sm">PNG, JPG, GIF up to 10MB each (Required)</p>
             </div>
 
             {/* File List */}
